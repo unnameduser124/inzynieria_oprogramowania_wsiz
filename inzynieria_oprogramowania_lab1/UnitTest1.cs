@@ -8,7 +8,7 @@ namespace inzynieria_oprogramowania_lab1
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void bogus_data_generation()
         {
             Faker<UserAddress> addressBogus = new Faker<UserAddress>();
             addressBogus.RuleFor(x => x.Description, y => y.Address.FullAddress());
@@ -19,7 +19,9 @@ namespace inzynieria_oprogramowania_lab1
             personBogus.RuleFor(x => x.Birthday, y => y.Person.DateOfBirth);
             personBogus.RuleFor(x => x.Address, y => addressBogus.Generate());
             var hundredPpl = personBogus.Generate(100);
+            Assert.True(hundredPpl.Count == 100);
 
         }
+
     }
 }
